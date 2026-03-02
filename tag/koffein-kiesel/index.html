@@ -109,6 +109,12 @@
     main > section:target{
       display: block;
     }
+    main > section#start{
+      display: block;
+    }
+    main > section:target ~ section#start{
+      display: none;
+    }
 
     .subhead{
       font-size: 1.05rem;
