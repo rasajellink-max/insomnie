@@ -1,13 +1,226 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WC</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>insomnie – WC</title>
+  <style>
+    :root{
+      color-scheme: light dark;
+      --bg: #0b0d10;
+      --fg: #e8eaf0;
+      --muted: rgba(232,234,240,.75);
+      --card: rgba(232,234,240,.06);
+      --border: rgba(232,234,240,.14);
+      --btn: rgba(232,234,240,.10);
+      --btnHover: rgba(232,234,240,.16);
+      --btnActive: rgba(232,234,240,.22);
+      --focus: rgba(120, 180, 255, .85);
+      --radius: 14px;
+      --max: 720px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f7f8fb;
+        --fg: #16181d;
+        --muted: rgba(22,24,29,.72);
+        --card: rgba(22,24,29,.04);
+        --border: rgba(22,24,29,.12);
+        --btn: rgba(22,24,29,.08);
+        --btnHover: rgba(22,24,29,.12);
+        --btnActive: rgba(22,24,29,.16);
+        --focus: rgba(0, 90, 200, .65);
+      }
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    header{ padding: 10px 0 18px; }
+
+    h1{
+      font-size: clamp(1.35rem, 3.6vw, 1.8rem);
+      margin: 0 0 10px;
+      letter-spacing: .2px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+    }
+
+    p{ margin: 0 0 12px; }
+    p:last-child{ margin-bottom: 0; }
+
+    .buttons{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    a.btn{
+      display: inline-block;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--btn);
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .1px;
+      min-width: min(260px, 100%);
+      text-align: center;
+    }
+    a.btn:hover{ background: var(--btnHover); }
+    a.btn:active{ background: var(--btnActive); }
+    a.btn:focus-visible{
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .subhead{
+      font-size: 1.05rem;
+      margin: 0 0 10px;
+    }
+
+    /* Pseudo-Seiten */
+    main > section{ display: none; }
+    main > section:target{ display: block; }
+
+    /* Default: Start sichtbar */
+    main > section#start{ display: block; }
+
+    /* Wenn irgendein Target aktiv ist (und vor #start steht), Start ausblenden */
+    main > section:target ~ section#start{ display: none; }
+  </style>
 </head>
+
 <body>
-  <h1>WC</h1>
-  <p>Text hier einfügen…</p>
-  <p><a href="../../">Zur Startseite</a></p>
+  <div class="wrap">
+    <header>
+      <h1>WC</h1>
+    </header>
+
+    <main>
+      <!-- STEP 1 -->
+      <section id="step1" class="card" aria-labelledby="t-step1">
+        <h2 id="t-step1" class="subhead">Worum es geht</h2>
+
+        <p>Wenn du nachts öfter zur Toilette musst, wird dein Schlaf ständig unterbrochen. Das Wiedereinschlafen fällt oft schwer.</p>
+        <p>Dadurch kann die Nacht wenig erholsam sein – auch wenn du insgesamt „lange im Bett“ warst.</p>
+        <p>Suchen wir die Stellschrauben mit dem folgenden Masterplan.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step2">Ja! Bitte zum Masterplan</a>
+          <a class="btn" href="#step2">Weiter, ich bin müde….</a>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section id="step2" class="card" aria-labelledby="t-step2">
+        <h2 id="t-step2" class="subhead">Masterplan – Teil 1: Trinken &amp; Essen</h2>
+
+        <p>- Wenn es für dich passt: verlagere den Großteil deiner Getränke in die erste Tageshälfte, also bis 16 Uhr.<br>
+           - Abends eher nichts „Wasserhaltiges“ als Snack (z. B. sehr wasserreiches Obst wie Melone oder viel Gurke).<br>
+           - Kurz vor dem Schlafengehen: geh noch einmal gezielt auf die Toilette.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step3">Mehr Handlungsmöglichkeiten</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section id="step3" class="card" aria-labelledby="t-step3">
+        <h2 id="t-step3" class="subhead">Masterplan – Teil 2: Körper</h2>
+
+        <p>Manchmal sammelt sich tagsüber Flüssigkeit in den Beinen (viel Sitzen ist ein Klassiker). Wenn du dich nachts hinlegst, verteilt sich das wieder im Körper – und dann muss es raus.</p>
+        <p>Mögliche Stellschrauben:</p>
+        <p>- Beine tagsüber immer wieder kurz hochlegen<br>
+           - Bewegung statt langes Sitzen<br>
+           - Kompressionsstrümpfe/-verbände, aber nur, wenn das bei dir vorgesehen ist</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step4">Und Medikamente?</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section id="step4" class="card" aria-labelledby="t-step4">
+        <h2 id="t-step4" class="subhead">Masterplan – Teil 3: Medikamente</h2>
+
+        <p>Manche Medikamente können Harndrang verstärken. Wenn sie ungünstig eingenommen werden, kann das nachts besonders zu gehäuften Toilettengängen führen.</p>
+        <p>Wenn du unsicher bist oder es häufiger vorkommt: sprich das bitte beim medizinischen Personal an. Das ist genau die richtige Stelle dafür.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- SOURCES -->
+      <section id="sources" class="card" aria-labelledby="t-sources">
+        <h2 id="t-sources" class="subhead">Quellen</h2>
+
+        <p>- Allgemeine Bewertung: „Nächtlicher Harndrang, in der Fachsprache als Nykturie bezeichnet, ist eine der häufigsten Ursachen für Schlafstörungen im Alter. Entgegen weitläufiger Mythen ist dies keine unvermeidbare Alterserscheinung, sondern kann durch gezielte Maßnahmen beeinflusst werden“ (vgl. Bogatzki &amp; Bogatzki, S. 54).</p>
+
+        <p>- Zeitliche Verteilung: „Achten Sie darauf, dass die Pflegebedürftigen ca. zwei Drittel der Flüssigkeitsmenge weit vor dem Schlafengehen trinken (bis ca. gegen 16:00 Uhr)“ (vgl. Bogatzki &amp; Bogatzki, S. 54).</p>
+
+        <p>- Abendkost: „Wasserhaltiges Obst wie Melone sollte nicht zum Abendessen serviert werden“ (vgl. Bogatzki &amp; Bogatzki, S. 54).</p>
+
+        <p>- Vorbereitung: „[…] vor dem Schlafengehen keine größeren Mengen trinken und noch einmal Harn lassen“ (vgl. Bogatzki &amp; Bogatzki, S. 78).</p>
+
+        <p>- Kompression: „Achten Sie auf das konsequente Anlegen und Tragen von Kompressionsstrümpfen und -verbänden“ (vgl. Bogatzki &amp; Bogatzki, S. 54).</p>
+
+        <p>- Beine hochlegen: „Weisen Sie den Pflegebedürftigen an, auch am Tag immer wieder die Beine hochzulegen, um das Abfließen der Lymphflüssigkeit zu ermöglichen“ (vgl. Bogatzki &amp; Bogatzki, S. 54).</p>
+
+        <p>- Physiologischer Hintergrund: (vgl. Bogatzki &amp; Bogatzki, S. 53).</p>
+
+        <p>- Bewegung: „Sorgen Sie dafür, dass sich die Pflegebedürftigen tagsüber möglichst bewegen und nicht stundenlang sitzen“ (vgl. Bogatzki &amp; Bogatzki, S. 54).</p>
+
+        <p>- Zeitpunkt der Einnahme: „Es gibt einige Medikamente, die durch ihre physiologische Wirkung zu Unterbrechungen des Schlafes führen können, vor allem Diuretika und ACE-Hemmer. Beide Medikamentengruppen haben eine diuretische Wirkung, führen also zu einem stark erhöhten Harndrang. Werden diese Medikamente nachts gegeben, erwacht der Betroffene häufiger […]“ (vgl. Bogatzki &amp; Bogatzki, S. 72).</p>
+
+        <p>- Medizinische Abklärung: „Falls aber z. B. […] über vermehrten Harndrang […] geklagt wird, so stehen die gerade beschriebenen Krankheiten im Vordergrund und es sollte eine entsprechende medizinische Exploration und ggf. Therapie vorgenommen werden“ (vgl. Bogatzki &amp; Bogatzki, S. 32).</p>
+
+        <p>Vollständige Quelle: Bogatzki, U. &amp; Bogatzki, A. (2020). <em>Nicht-medikamentöse Interventionen bei Schlafstörungen. Ein Ratgeber für Pflegekräfte.</em> Hannover: Schlütersche Verlagsgesellschaft.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#step4">Zurück</a>
+        </div>
+      </section>
+
+      <!-- START (muss ganz am Ende stehen für die CSS-Logik) -->
+      <section id="start" class="card" aria-labelledby="t-start">
+        <h2 id="t-start" class="subhead">Nächtlicher Harndrang</h2>
+
+        <p>Nächtlicher Harndrang kann uns immer wieder aus dem Schlaf reißen. Das kann kräfteraubend sein – und es fühlt sich schnell so an, als müsstest du das einfach hinnehmen.</p>
+        <p>Wichtig: Das muss nicht automatisch „normal“ sein. Oft kann man mit ein paar Stellschrauben etwas verändern.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step1">Okay, was kann ich tun?</a>
+          <a class="btn" href="#step1">Es ärgert mich gerade, dass ich deswegen wach bin…</a>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
