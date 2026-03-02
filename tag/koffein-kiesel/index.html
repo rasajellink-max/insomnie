@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>insomnie – Koffein–Kiesel</title>
+  <style>
+    :root{
+      color-scheme: light dark;
+      --bg: #0b0d10;
+      --fg: #e8eaf0;
+      --muted: rgba(232,234,240,.75);
+      --card: rgba(232,234,240,.06);
+      --border: rgba(232,234,240,.14);
+      --btn: rgba(232,234,240,.10);
+      --btnHover: rgba(232,234,240,.16);
+      --btnActive: rgba(232,234,240,.22);
+      --focus: rgba(120, 180, 255, .85);
+      --radius: 14px;
+      --max: 720px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f7f8fb;
+        --fg: #16181d;
+        --muted: rgba(22,24,29,.72);
+        --card: rgba(22,24,29,.04);
+        --border: rgba(22,24,29,.12);
+        --btn: rgba(22,24,29,.08);
+        --btnHover: rgba(22,24,29,.12);
+        --btnActive: rgba(22,24,29,.16);
+        --focus: rgba(0, 90, 200, .65);
+      }
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    header{
+      padding: 10px 0 18px;
+    }
+
+    .kicker{
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin: 0 0 6px;
+    }
+
+    h1{
+      font-size: clamp(1.35rem, 3.6vw, 1.8rem);
+      margin: 0 0 10px;
+      letter-spacing: .2px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+    }
+
+    p{ margin: 0 0 12px; }
+    p:last-child{ margin-bottom: 0; }
+
+    .buttons{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    a.btn{
+      display: inline-block;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--btn);
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .1px;
+      min-width: min(260px, 100%);
+      text-align: center;
+    }
+    a.btn:hover{ background: var(--btnHover); }
+    a.btn:active{ background: var(--btnActive); }
+    a.btn:focus-visible{
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    main > section{
+      display: none;
+    }
+    main > section:target{
+      display: block;
+    }
+
+    .subhead{
+      font-size: 1.05rem;
+      margin: 0 0 10px;
+    }
+
+    .fineprint{
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <p class="kicker">insomnie · NFC-Tag</p>
+      <h1>Koffein – Kiesel</h1>
+    </header>
+
+    <main>
+      <section id="start" class="card" aria-labelledby="t-start">
+        <h2 id="t-start" class="subhead">Der Koffein-Kiesel – der Klassiker also.</h2>
+
+        <p>Die schwierige Nachricht zuerst: Die Lösung für dieses Problem kannst du ab morgen an der Wurzel packen.</p>
+        <p>Für heute darfst du es akzeptieren.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step1">Okay, ich akzeptiere</a>
+          <a class="btn" href="#step1">Das fällt mir gerade noch schwer…</a>
+        </div>
+      </section>
+
+      <section id="step1" class="card" aria-labelledby="t-step1">
+        <h2 id="t-step1" class="subhead"></h2>
+
+        <p>Wenn du noch Energie hast, schau auf der Schlafloskarte nach weiteren Tipps und Hinweisen.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step2">Hier geht es zum Masterplan ab morgen</a>
+        </div>
+      </section>
+
+      <section id="step2" class="card" aria-labelledby="t-step2">
+        <h2 id="t-step2" class="subhead">Masterplan</h2>
+
+        <p>Was wenige wissen: Die Halbwertszeit von Koffein beträgt etwa 5 Stunden. Wenn du um 15 Uhr zum Kuchen Kaffee oder etwas Koffeinhaltiges trinkst, ist um 20 Uhr noch die Hälfte des Koffeins in deinem Körper – und das kann wach halten.</p>
+
+        <p>Versuche ab 15 Uhr keine aktivierenden Getränke mehr zu trinken. Dazu zählen Kaffee, Energydrinks, Schwarztee und – ja – auch Cola-Getränke.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#hints">Weitere Hinweise</a>
+          <a class="btn" href="#now">Und jetzt?</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <section id="hints" class="card" aria-labelledby="t-hints">
+        <h2 id="t-hints" class="subhead">Weitere Hinweise</h2>
+
+        <p>Es gibt schnell wirksame Schmerzmittel, die Koffein enthalten. Wenn du solche zu dir nimmst, achte darauf, ob sie Koffein enthalten, und berücksichtige die Uhrzeit bei der Einnahme.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#step2">Zurück</a>
+        </div>
+      </section>
+
+      <section id="now" class="card" aria-labelledby="t-now">
+        <h2 id="t-now" class="subhead">Wenn du magst, eine kleine Aufgabe:</h2>
+
+        <p>Schau mal auf der Karte. Ganz in der Nähe befindet sich ein nächtliches, schlafraubendes Problem, das zum Teil auch etwas mit koffeinhaltigen Getränken zu tun hat. Findest du es?</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#step2">Zurück</a>
+        </div>
+      </section>
+
+      <section id="sources" class="card" aria-labelledby="t-sources">
+        <h2 id="t-sources" class="subhead">Quellen</h2>
+
+        <p>(Wirkungsweise): Koffein fungiert als schlafstörende Substanz, indem es die Wachheit steigert und das Andocken von Adenosin blockiert (vgl. Bogatzki &amp; Bogatzki, S. 71, 164).</p>
+        <p>(Halbwertszeit): Aufgrund einer Halbwertszeit von etwa fünf Stunden beeinträchtigt Koffein die Schlafqualität massiv (vgl. Bogatzki &amp; Bogatzki, S. 164).</p>
+        <p>(NSAR &amp; Myoklonien): Eine Überprüfung der Abendmedikation ist essenziell, da Koffein oft in Analgetika enthalten ist und Einschlafmyoklonien fördern kann (vgl. Bogatzki &amp; Bogatzki, S. 40, 71).</p>
+
+        <p>Bogatzki, U. &amp; Bogatzki, A. (2020). <em>Nicht-medikamentöse Interventionen bei Schlafstörungen</em>. Hannover: Schlütersche Verlagsgesellschaft.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#step2">Zurück</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

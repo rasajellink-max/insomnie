@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>insomnie – Tagschlaf–Düne</title>
+  <style>
+    :root{
+      color-scheme: light dark;
+      --bg: #0b0d10;
+      --fg: #e8eaf0;
+      --muted: rgba(232,234,240,.75);
+      --card: rgba(232,234,240,.06);
+      --border: rgba(232,234,240,.14);
+      --btn: rgba(232,234,240,.10);
+      --btnHover: rgba(232,234,240,.16);
+      --btnActive: rgba(232,234,240,.22);
+      --focus: rgba(120, 180, 255, .85);
+      --radius: 14px;
+      --max: 720px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f7f8fb;
+        --fg: #16181d;
+        --muted: rgba(22,24,29,.72);
+        --card: rgba(22,24,29,.04);
+        --border: rgba(22,24,29,.12);
+        --btn: rgba(22,24,29,.08);
+        --btnHover: rgba(22,24,29,.12);
+        --btnActive: rgba(22,24,29,.16);
+        --focus: rgba(0, 90, 200, .65);
+      }
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    header{ padding: 10px 0 18px; }
+
+    .kicker{
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin: 0 0 6px;
+    }
+
+    h1{
+      font-size: clamp(1.35rem, 3.6vw, 1.8rem);
+      margin: 0 0 10px;
+      letter-spacing: .2px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+    }
+
+    p{ margin: 0 0 12px; }
+    p:last-child{ margin-bottom: 0; }
+
+    .buttons{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    a.btn{
+      display: inline-block;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--btn);
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .1px;
+      min-width: min(260px, 100%);
+      text-align: center;
+    }
+    a.btn:hover{ background: var(--btnHover); }
+    a.btn:active{ background: var(--btnActive); }
+    a.btn:focus-visible{
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .subhead{
+      font-size: 1.05rem;
+      margin: 0 0 10px;
+    }
+
+    /* Pseudo-Seiten */
+    main > section{ display: none; }
+    main > section:target{ display: block; }
+
+    /* Default: Start sichtbar */
+    main > section#start{ display: block; }
+
+    /* Wenn irgendein Target aktiv ist (und vor #start steht), Start ausblenden */
+    main > section:target ~ section#start{ display: none; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>      <h1>Tagschlaf – Düne</h1>
+    </header>
+
+    <main>
+      <!-- STEP 1 -->
+      <section id="step1" class="card" aria-labelledby="t-step1">
+        <h2 id="t-step1" class="subhead">Warum das wichtig ist</h2>
+
+        <p>Wenn du tagsüber viel schläfst, fehlt deinem Körper oft der Schlafdruck für die Nacht.</p>
+        <p>Dann wird Einschlafen oder Durchschlafen abends schwerer – und am nächsten Tag bist du wieder müde. Ein Teufelskreis.</p>
+        <p>Ziel: tagsüber Wachheit stabilisieren, damit die Nacht wieder eine echte Chance hat.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step2">Masterplan</a>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section id="step2" class="card" aria-labelledby="t-step2">
+        <h2 id="t-step2" class="subhead">Masterplan – Teil 1: Tageslicht</h2>
+
+        <p>In der ersten Hälfte des Tages: so viel Tageslicht wie möglich.</p>
+        <p>Am besten raus, auch wenn es nur kurz ist.</p>
+        <p>Helles Licht signalisiert deinem Körper: „Tag.“ Das hilft, später wieder „Nacht“ zu fühlen.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step3">Wenn ich trotzdem müde werde?</a>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section id="step3" class="card" aria-labelledby="t-step3">
+        <h2 id="t-step3" class="subhead">Masterplan – Teil 2: Aktivieren statt wegdösen</h2>
+
+        <p>Wenn du müde wirst, probier erst etwas Aktivierendes:</p>
+        <p>- kaltes Wasser über die Unterarme<br>
+           - aktivierende Aromapflege (z. B. Rosmarin, Lemongrass oder Pfefferminze)</p>
+        <p>Wichtig: Aktivierende Düfte lieber nicht nach 15:00 Uhr, damit die Nacht nicht leidet.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step4">Und wenn ich trotzdem schlafen muss?</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section id="step4" class="card" aria-labelledby="t-step4">
+        <h2 id="t-step4" class="subhead">Masterplan – Teil 3: Wenn Schlaf, dann kurz</h2>
+
+        <p>Wenn du schlafen musst: 30–60 Minuten, am besten nach dem Mittagessen. Nicht länger.</p>
+        <p>Längere Tagesschlaf-Phasen (z. B. über 60 Minuten) hängen oft mit schlechterem Nachtschlaf zusammen.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#food">Ernährung</a>
+          <a class="btn" href="#info">Noch ein Hinweis</a>
+          <a class="btn" href="#now">Und jetzt?</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- FOOD -->
+      <section id="food" class="card" aria-labelledby="t-food">
+        <h2 id="t-food" class="subhead">Ernährung</h2>
+
+        <p>Ein kleiner Hebel für die Nacht kann auch Essen sein: Tryptophan ist eine Vorstufe von Melatonin und kann den Tiefschlaf unterstützen.</p>
+        <p>Beispiele (tryptophanreich): Cashewnüsse, Käse, Haferflocken.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#step4">Zurück</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- INFO -->
+      <section id="info" class="card" aria-labelledby="t-info">
+        <h2 id="t-info" class="subhead">Seiteninfo</h2>
+
+        <p>Bei hochaltrigen oder kranken bzw. schwachen Menschen kann ein bi- oder polyphasischer Schlaf normal sein und sollte respektiert und ermöglicht werden.</p>
+        <p>Hier geht es aber darum: Wenn du nachts nicht schläfst, kann ausgiebiger Tagschlaf den Rhythmus weiter verschieben.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#step4">Zurück</a>
+        </div>
+      </section>
+
+      <!-- NOW -->
+      <section id="now" class="card" aria-labelledby="t-now">
+        <h2 id="t-now" class="subhead">Wenn du magst, eine kleine Aufgabe:</h2>
+
+        <p>Beobachte heute einmal den Unterschied:</p>
+        <p><strong>Tagesmüdigkeit:</strong> Du bist schlapp, schläfst aber in Ruhephasen nicht ein.<br>
+           <strong>Tagesschläfrigkeit:</strong> Du nickst ungewollt weg.</p>
+        <p>Wenn du ungewollt einschläfst, ist das ein Hinweis, dass der Nachtschlaf zu kurz oder nicht erholsam war.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#step4">Zurück</a>
+        </div>
+      </section>
+
+      <!-- SOURCES -->
+      <section id="sources" class="card" aria-labelledby="t-sources">
+        <h2 id="t-sources" class="subhead">Quellen</h2>
+
+        <p>- Normalität des bi-phasischen Schlafs: „Hochaltrige und kranke bzw. schwache Bewohner haben einen bi- oder polyphasischen Schlaf. Das ist so zu respektieren und ermöglichen“ (vgl. Bogatzki &amp; Bogatzki, S. 80).</p>
+
+        <p>- Der Teufelskreis verminderten Schlafdrucks: „Schließlich führt der als unbefriedigend empfundene Schlaf oft dazu, dass man dem postprandialen Müdigkeitsgefühl nachgibt und auch am Tage längere Schlafphasen im Sinne eines wieder polyphasischen Schlafverhaltens zu beobachten sind. Und in der Folge ist der Schlafdruck für die kommende Nacht bereits verringert – ein Teufelskreis!“ (vgl. Bogatzki &amp; Bogatzki, S. 31).</p>
+
+        <p>- Zusammenhang mit dem Intellekt: „‚Zu viel Schlaf macht dumm‘. Eine provokante These, die jedoch in Studien belegt ist. Wer zulange schläft, läuft Gefahr, an seinem Intellekt Schaden zu nehmen“ (vgl. Bogatzki &amp; Bogatzki, S. 80).</p>
+
+        <p>- Warnsignal Tagesschläfrigkeit: „Tagesschläfrigkeit beschreibt die Tendenz, tagsüber ungewollt einzuschlafen. Es ist ein sicheres Zeichen für kaum erholsamen bzw. zu wenig Schlaf“ (vgl. Bogatzki &amp; Bogatzki, S. 48).</p>
+
+        <p>- Gezielte Zeitbegrenzung: „Liegt das Problem aber primär beim Schlaf, so kann eine Vereinbarung über eingeschränkte Schlafzeiten am Tage (z. B. maximal 30 Minuten nach dem Mittagessen) [...] eine Hilfe sein“ (vgl. Bogatzki &amp; Bogatzki, S. 33).</p>
+
+        <p>- Sinnstiftende Tagesstruktur: „Wer einen ausgefüllten Tag hat, wer eine Aufgabe hat und diese erledigen konnte, wird nicht tagsüber vor sich hindösen, weil ihm Reize fehlen. Er wird eher nach getaner Arbeit zufrieden ruhen wollen“ (vgl. Bogatzki &amp; Bogatzki, S. 153).</p>
+
+        <p>- Lichtexposition zur Wachheitssteuerung: „Mobile Bewohner sollten 1–2 Stunden am Tag, besonders vormittags, dem Tageslicht ausgesetzt sein“ (vgl. Bogatzki &amp; Bogatzki, S. 130).</p>
+
+        <p>- Aktivierende Wasseranwendung: „Auch nach dem Mittagschlaf kann dieses Armbad [kaltes Wasser] für einen aktiv erlebten Nachmittag sorgen“ (vgl. Bogatzki &amp; Bogatzki, S. 121).</p>
+
+        <p>- Belebende Aromapflege: „Rosmarin-Hydrolat kann auf die Unterarme gesprüht werden, um die Wachheit und Konzentrationsfähigkeit anzuregen. Es wirkt gegen Müdigkeit und Antriebslosigkeit“ (vgl. Bogatzki &amp; Bogatzki, S. 112).</p>
+
+        <p>- Förderung des Tiefschlafs durch Ernährung: „Tryptophan erzeugt eine bessere Stimmungslage und [...] verbessert den Tiefschlaf“ (vgl. Bogatzki &amp; Bogatzki, S. 125).</p>
+
+        <p>Vollständige Quelle: Bogatzki, U. &amp; Bogatzki, A. (2020). <em>Nicht-medikamentöse Interventionen bei Schlafstörungen. Ein Ratgeber für Pflegekräfte.</em> Hannover: Schlütersche Verlagsgesellschaft.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#step4">Zurück</a>
+        </div>
+      </section>
+
+      <!-- START (muss ganz am Ende stehen für die CSS-Logik) -->
+      <section id="start" class="card" aria-labelledby="t-start">
+        <h2 id="t-start" class="subhead">Es gibt verschiedene Gründe, am Tag müde zu sein.</h2>
+
+        <p>Nachts nicht geschlafen, überwältigende Eindrücke, Niedergestimmtheit, nach dem Mittagessen oder Grunderschöpfung.</p>
+        <p>Das ist verständlich. Langfristig kann es aber dazu führen, dass sich dein Tag-Nacht-Rhythmus verschiebt.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step1">Okay, verstanden</a>
+          <a class="btn" href="#step1">Ich bin gerade trotzdem total müde…</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
