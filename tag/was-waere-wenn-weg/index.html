@@ -1,13 +1,312 @@
+cat > index.html <<'HTML'
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Was wäre wenn Weg</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>insomnie – Was-wäre-wenn-Weg</title>
+  <style>
+    :root{
+      color-scheme: light dark;
+      --bg:#0b0d10;
+      --fg:#e8eaf0;
+      --muted:rgba(232,234,240,.75);
+      --card:rgba(232,234,240,.06);
+      --border:rgba(232,234,240,.14);
+      --btn:rgba(232,234,240,.10);
+      --btnHover:rgba(232,234,240,.16);
+      --btnActive:rgba(232,234,240,.22);
+      --focus:rgba(120,180,255,.85);
+      --radius:14px;
+      --max:720px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb;
+        --fg:#16181d;
+        --muted:rgba(22,24,29,.72);
+        --card:rgba(22,24,29,.04);
+        --border:rgba(22,24,29,.12);
+        --btn:rgba(22,24,29,.08);
+        --btnHover:rgba(22,24,29,.12);
+        --btnActive:rgba(22,24,29,.16);
+        --focus:rgba(0,90,200,.65);
+      }
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.55;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:24px 16px 40px;
+    }
+
+    header{ padding:10px 0 18px; }
+    h1{
+      font-size:clamp(1.35rem,3.6vw,1.8rem);
+      margin:0 0 10px;
+      letter-spacing:.2px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px 16px;
+    }
+
+    p{ margin:0 0 12px; }
+    p:last-child{ margin-bottom:0; }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    a.btn{
+      display:inline-block;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:var(--btn);
+      color:inherit;
+      text-decoration:none;
+      font-weight:600;
+      letter-spacing:.1px;
+      min-width:min(260px,100%);
+      text-align:center;
+    }
+    a.btn:hover{ background:var(--btnHover); }
+    a.btn:active{ background:var(--btnActive); }
+    a.btn:focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:2px;
+    }
+
+    .subhead{
+      font-size:1.05rem;
+      margin:0 0 10px;
+    }
+
+    /* Pseudo-Seiten */
+    main > section{ display:none; }
+    main > section:target{ display:block; }
+    main > section#start{ display:block; }
+    main > section:target ~ section#start{ display:none; }
+  </style>
 </head>
+
 <body>
-  <h1>Was wäre wenn Weg</h1>
-  <p>Text hier einfügen…</p>
-  <p><a href="../../">Zur Startseite</a></p>
+  <div class="wrap">
+    <header>
+      <h1>Was-wäre-wenn-Weg</h1>
+    </header>
+
+    <main>
+      <!-- STEP 1 -->
+      <section id="step1" class="card" aria-labelledby="t-step1">
+        <h2 id="t-step1" class="subhead">Masterplan</h2>
+
+        <p>1. Entlasten: Dinge aus dem Kopf raus (kurz notieren).<br>
+           2. Distanz schaffen: Gedanken beobachten statt mitlaufen.<br>
+           3. Fokus binden: Körper/Atmung als Anker, damit das Gehirn runterfährt.<br>
+           4. Was wäre, wenn Schlafen gar nicht geht?: Bett kurz verlassen, ruhige Tätigkeit, dann zurück.<br>
+           5. Gefühle regulieren: Wenn Angst/Scham/Anspannung aufkommen, gezielt lösen.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Übungen auswählen</a>
+          <a class="btn" href="#stimulus">Was wäre, wenn ich nach ~30 Minuten noch wach bin?</a>
+        </div>
+      </section>
+
+      <!-- CHOOSE -->
+      <section id="choose" class="card" aria-labelledby="t-choose">
+        <h2 id="t-choose" class="subhead">Wähle eine Übung</h2>
+
+        <p>Nimm eine, die sich gerade machbar anfühlt.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#notes">Notizblock (Kopf entlasten)</a>
+          <a class="btn" href="#stop">Gedankenstopp</a>
+          <a class="btn" href="#mind1">Vier Dimensionen der Achtsamkeit</a>
+          <a class="btn" href="#tapping">Tapping (NAEM / Klopfen)</a>
+          <a class="btn" href="#anchor">Anker setzen (diskret)</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- NOTES -->
+      <section id="notes" class="card" aria-labelledby="t-notes">
+        <h2 id="t-notes" class="subhead">Notizblock-Entlastung</h2>
+
+        <p>Wenn To-dos, Ideen oder Sorgen keine Ruhe geben: kurz aufschreiben.</p>
+        <p>Stichworte reichen. Die Idee: Du legst es bis morgen auf dem Blatt ab – dein Kopf muss es jetzt nicht mehr tragen.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Übungsauswahl</a>
+          <a class="btn" href="#stop">Nächste Übung</a>
+        </div>
+      </section>
+
+      <!-- STOP -->
+      <section id="stop" class="card" aria-labelledby="t-stop">
+        <h2 id="t-stop" class="subhead">Gedankenstopp</h2>
+
+        <p>Sobald du merkst, dass du wieder auf dem „Was-wäre-wenn…“-Weg bist: innerlich oder leise „Stopp“ sagen.</p>
+        <p>Danach bewusst auf etwas Neutrales oder Positives lenken (z. B. eine angenehme Erinnerung oder die Überlegung, welche Zutaten ein super langweiliges Müsli haben sollte).</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Übungsauswahl</a>
+          <a class="btn" href="#mind1">Nächste Übung</a>
+          <a class="btn" href="#stimulus">Was wäre, wenn es gar nicht klappt?</a>
+        </div>
+      </section>
+
+      <!-- MINDFULNESS 1 -->
+      <section id="mind1" class="card" aria-labelledby="t-mind1">
+        <h2 id="t-mind1" class="subhead">Vier Dimensionen der Achtsamkeit</h2>
+
+        <p><strong>Schritt 1/4: Raum</strong></p>
+        <p>Wahrnehmen, dass du in einem Raum bist. Einfach „hier“ spüren.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#mind2">Weiter</a>
+          <a class="btn" href="#choose">Zur Übungsauswahl</a>
+        </div>
+      </section>
+
+      <!-- MINDFULNESS 2 -->
+      <section id="mind2" class="card" aria-labelledby="t-mind2">
+        <h2 id="t-mind2" class="subhead">Vier Dimensionen der Achtsamkeit</h2>
+
+        <p><strong>Schritt 2/4: Stille</strong></p>
+        <p>Auf die Stille hinter den Geräuschen achten.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#mind3">Weiter</a>
+          <a class="btn" href="#mind1">Zurück</a>
+        </div>
+      </section>
+
+      <!-- MINDFULNESS 3 -->
+      <section id="mind3" class="card" aria-labelledby="t-mind3">
+        <h2 id="t-mind3" class="subhead">Vier Dimensionen der Achtsamkeit</h2>
+
+        <p><strong>Schritt 3/4: Körper</strong></p>
+        <p>Körper langsam scannen (Zehen → Kopf → zurück). Nur wahrnehmen.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#mind4">Weiter</a>
+          <a class="btn" href="#mind2">Zurück</a>
+        </div>
+      </section>
+
+      <!-- MINDFULNESS 4 -->
+      <section id="mind4" class="card" aria-labelledby="t-mind4">
+        <h2 id="t-mind4" class="subhead">Vier Dimensionen der Achtsamkeit</h2>
+
+        <p><strong>Schritt 4/4: Gedanken</strong></p>
+        <p>Gedanken wie vorbeiziehende Bilder beobachten, ohne sie zu bewerten.</p>
+        <p>Ein Trick: Du wartest aktiv, welcher Gedanke als Nächstes auftaucht.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Übungsauswahl</a>
+          <a class="btn" href="#tapping">Nächste Übung</a>
+        </div>
+      </section>
+
+      <!-- TAPPING -->
+      <section id="tapping" class="card" aria-labelledby="t-tapping">
+        <h2 id="t-tapping" class="subhead">Tapping (NAEM / Klopfen)</h2>
+
+        <p>Du klopfst mit den Fingerkuppen (Zeige-, Mittel- und Ringfinger beider Hände) nacheinander vier Punkte ab.</p>
+        <p>Jeden Punkt 7–10-mal, zügig. Bist du fertig, dann wieder von oben beginnen. Insgesamt mindestens 2 Minuten.</p>
+
+        <p>Reihenfolge (von oben nach unten):<br>
+           1. zwischen den Augen an der Nasenwurzel<br>
+           2. unter der Nase (Mitte)<br>
+           3. unter der Unterlippe (Mitte)<br>
+           4. Mitte der Brust (Thymus-Bereich)</p>
+
+        <p>Du machst weiter, bis das Gedankenkreisen spürbar nachlässt.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Übungsauswahl</a>
+        </div>
+      </section>
+
+      <!-- ANCHOR -->
+      <section id="anchor" class="card" aria-labelledby="t-anchor">
+        <h2 id="t-anchor" class="subhead">Anker setzen (diskret)</h2>
+
+        <p>Wenn du das Klopfen nicht machen willst oder es gerade unpassend ist, kannst du eine kleine Geste als Anker nutzen.</p>
+        <p>Beispiel: Daumen und Zeigefinger zu einem „O“ formen.</p>
+        <p>Die Idee: Wenn du diese Geste immer wieder mit einem beruhigenden Zustand verknüpfst, kann sie später allein schon etwas Entspannung auslösen.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Übungsauswahl</a>
+          <a class="btn" href="#stimulus">Wenn es festhängt</a>
+        </div>
+      </section>
+
+      <!-- STIMULUS -->
+      <section id="stimulus" class="card" aria-labelledby="t-stimulus">
+        <h2 id="t-stimulus" class="subhead">Wenn du nach ca. 30 Minuten noch wach bist</h2>
+
+        <p>Wenn du merkst: Du liegst fest, Grübeln läuft und der Druck steigt – dann steh kurz auf.</p>
+        <p>Mach etwas Ruhiges (lesen, leise Musik, sitzen und atmen).</p>
+        <p>Zurück ins Bett erst, wenn Müdigkeit wieder da ist.</p>
+
+        <p>Ziel: Bett bleibt „Schlaf-Ort“, nicht „Wachliegen-Ort“.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Übungsauswahl</a>
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- SOURCES (unverändert) -->
+      <section id="sources" class="card" aria-labelledby="t-sources">
+        <h2 id="t-sources" class="subhead">Quellenangaben</h2>
+
+        <p>Bogatzki, U. &amp; Bogatzki, A. (2020). Nicht-medikamentöse Interventionen bei Schlafstörungen. Ein Ratgeber für Pflegekräfte. Hannover: Schlütersche Verlagsgesellschaft.</p>
+        <p>Kreße, H. (2016). 100 Fragen zum Umgang mit Schmerz in der Pflege. 2., aktualisierte Auflage. Hannover: Schlütersche Verlagsgesellschaft.</p>
+        <p>Wortmann, K. (2015). Wege in den erholsamen Schlaf. Übungen, die den Schlaf einladen und zum Bleiben bewegen. Paderborn: Junfermann Verlag.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#stimulus">Zurück</a>
+        </div>
+      </section>
+
+      <!-- START (muss ganz am Ende stehen für die CSS-Logik) -->
+      <section id="start" class="card" aria-labelledby="t-start">
+        <h2 id="t-start" class="subhead">Was wäre wenn…?</h2>
+
+        <p>Wer den Was-wäre-wenn-Weg entlang wandert, macht gedanklichen Hochleistungssport. Alle Eventualitäten werden durchgegangen – die Prognose ist meistens düster.</p>
+        <p>Die Nacht bietet gefühlt unbegrenzt Raum, um auf diesem nie enden wollenden Weg entlang zu wandern. Durch das Nachdenken über mögliche Gefahren bleibt auch der Körper wach. Könnte ja real sein.</p>
+        <p>So wird das Einschlafen zu einer anstrengenden Tortur.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step1">Was ist der Plan?</a>
+          <a class="btn" href="#choose">Was kann ich tun?</a>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
+HTML
