@@ -1,13 +1,275 @@
+cat > index.html <<'HTML'
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lichtsmog – City</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>insomnie – Lichtsmog-City</title>
+  <style>
+    :root{
+      color-scheme: light dark;
+      --bg:#0b0d10;
+      --fg:#e8eaf0;
+      --muted:rgba(232,234,240,.75);
+      --card:rgba(232,234,240,.06);
+      --border:rgba(232,234,240,.14);
+      --btn:rgba(232,234,240,.10);
+      --btnHover:rgba(232,234,240,.16);
+      --btnActive:rgba(232,234,240,.22);
+      --focus:rgba(120,180,255,.85);
+      --radius:14px;
+      --max:720px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb;
+        --fg:#16181d;
+        --muted:rgba(22,24,29,.72);
+        --card:rgba(22,24,29,.04);
+        --border:rgba(22,24,29,.12);
+        --btn:rgba(22,24,29,.08);
+        --btnHover:rgba(22,24,29,.12);
+        --btnActive:rgba(22,24,29,.16);
+        --focus:rgba(0,90,200,.65);
+      }
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.55;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:24px 16px 40px;
+    }
+
+    header{ padding:10px 0 18px; }
+    h1{
+      font-size:clamp(1.35rem,3.6vw,1.8rem);
+      margin:0 0 10px;
+      letter-spacing:.2px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px 16px;
+    }
+
+    p{ margin:0 0 12px; }
+    p:last-child{ margin-bottom:0; }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    a.btn{
+      display:inline-block;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:var(--btn);
+      color:inherit;
+      text-decoration:none;
+      font-weight:600;
+      letter-spacing:.1px;
+      min-width:min(260px,100%);
+      text-align:center;
+    }
+    a.btn:hover{ background:var(--btnHover); }
+    a.btn:active{ background:var(--btnActive); }
+    a.btn:focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:2px;
+    }
+
+    .subhead{
+      font-size:1.05rem;
+      margin:0 0 10px;
+    }
+
+    /* Pseudo-Seiten */
+    main > section{ display:none; }
+    main > section:target{ display:block; }
+    main > section#start{ display:block; }
+    main > section:target ~ section#start{ display:none; }
+  </style>
 </head>
+
 <body>
-  <h1>Lichtsmog – City</h1>
-  <p>Text hier einfügen…</p>
-  <p><a href="../../">Zur Startseite</a></p>
+  <div class="wrap">
+    <header>
+      <h1>Lichtsmog-City</h1>
+    </header>
+
+    <main>
+      <!-- STEP 0 -->
+      <section id="step0" class="card" aria-labelledby="t-step0">
+        <h2 id="t-step0" class="subhead">Einordnung</h2>
+
+        <p>Dein Körper orientiert sich stark an hell/dunkel. Helles Licht macht eher wach, gedimmtes Licht hilft eher beim Einstellen auf die Nacht.</p>
+        <p>Besonders am Abend kann grelles Bildschirmlicht den Körper „verwirren“ und die Nacht nach hinten schieben.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step1">Masterplan</a>
+          <a class="btn" href="#choose">Direkt zu den Optionen</a>
+        </div>
+      </section>
+
+      <!-- STEP 1 -->
+      <section id="step1" class="card" aria-labelledby="t-step1">
+        <h2 id="t-step1" class="subhead">Masterplan</h2>
+
+        <p>1. Vormittags Licht tanken: Tageslicht in der ersten Tageshälfte.<br>
+           2. Abends runterdimmen: weniger hell, eher warmes Licht.<br>
+           3. Bildschirme rechtzeitig aus: mindestens 1 Stunde vor dem Schlafen.<br>
+           4. Schlafraum abdunkeln: nachts so dunkel wie möglich.<br>
+           5. Nachts nur kleines Licht: wenn du raus musst, kein helles Licht.<br>
+           6. Wenn du kaum rauskommst: ggf. Tageslichtlampe (ärztlich abklären).<br>
+           7. Wenn Dunkelheit Angst macht: Nachtlicht langsam herunterdimmen (Training).</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Optionen auswählen</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- CHOOSE -->
+      <section id="choose" class="card" aria-labelledby="t-choose">
+        <h2 id="t-choose" class="subhead">Auswahl</h2>
+
+        <div class="buttons">
+          <a class="btn" href="#daylight">Tageslicht am Vormittag</a>
+          <a class="btn" href="#evening">Abendlicht beruhigend machen</a>
+          <a class="btn" href="#screens">Handy/TV/PC stoppen</a>
+          <a class="btn" href="#darkroom">Schlafzimmer abdunkeln</a>
+          <a class="btn" href="#night">Wenn ich nachts aufstehe</a>
+          <a class="btn" href="#fear">Angst vor Dunkelheit</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- DAYLIGHT -->
+      <section id="daylight" class="card" aria-labelledby="t-daylight">
+        <h2 id="t-daylight" class="subhead">Tageslicht am Vormittag</h2>
+
+        <p>Wenn du kannst: Jeden Tag raus. Selbst „kurz“ ist besser als gar nicht. Tageslicht hilft deinem Körper, tagsüber wach zu sein – und abends wieder müde zu werden.</p>
+
+        <p>Mach einen kleinen Selbstversuch: Schalte am Morgen, wenn es noch dunkel ist, nachdem dein Wecker geklingelt hat, kurz die Taschenlampe deines Handys ein. Leuchte bei geschlossenen Augen in Richtung deines Gesichts.</p>
+        <p>Es kann sein, dass dein Körper davon schneller wach wird. Das zeigt, wie stark Licht unseren Rhythmus beeinflusst.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Auswahl</a>
+          <a class="btn" href="#evening">Nächste Option</a>
+        </div>
+      </section>
+
+      <!-- EVENING -->
+      <section id="evening" class="card" aria-labelledby="t-evening">
+        <h2 id="t-evening" class="subhead">Abendlicht beruhigend machen</h2>
+
+        <p>Abends eher gedimmt und warm. Weniger „hell“ bedeutet: leichter müde werden. Das ist wie ein Signal: „Jetzt wird’s Nacht.“</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Auswahl</a>
+          <a class="btn" href="#screens">Nächste Option</a>
+        </div>
+      </section>
+
+      <!-- SCREENS -->
+      <section id="screens" class="card" aria-labelledby="t-screens">
+        <h2 id="t-screens" class="subhead">Bildschirme stoppen</h2>
+
+        <p>Bildschirme können den Körper wachhalten, obwohl du müde bist. Wenn möglich: mindestens eine Stunde vor dem Schlafen aus.</p>
+        <p>Wenn es nicht anders geht: konsequent Nachtmodus/Blaulichtfilter.</p>
+        <p>Wenn du bei der Einstellung Hilfe brauchst, frag ruhig deine Mitmenschen.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Auswahl</a>
+          <a class="btn" href="#darkroom">Nächste Option</a>
+        </div>
+      </section>
+
+      <!-- DARKROOM -->
+      <section id="darkroom" class="card" aria-labelledby="t-darkroom">
+        <h2 id="t-darkroom" class="subhead">Schlafzimmer abdunkeln</h2>
+
+        <p>Je dunkler, desto einfacher kann dein Körper „Nacht“ fühlen. Schon kleine Lichtquellen können stören, besonders wenn du empfindlich bist.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Auswahl</a>
+          <a class="btn" href="#night">Nächste Option</a>
+        </div>
+      </section>
+
+      <!-- NIGHT -->
+      <section id="night" class="card" aria-labelledby="t-night">
+        <h2 id="t-night" class="subhead">Wenn du nachts aufstehst</h2>
+
+        <p>Wenn du nachts raus musst: möglichst wenig und möglichst sanftes Licht. Kein grelles Licht, sonst schaltet dein Körper schneller auf „wach“.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Auswahl</a>
+          <a class="btn" href="#fear">Nächste Option</a>
+        </div>
+      </section>
+
+      <!-- FEAR -->
+      <section id="fear" class="card" aria-labelledby="t-fear">
+        <h2 id="t-fear" class="subhead">Angst vor Dunkelheit</h2>
+
+        <p>Wenn Dunkelheit beängstigend ist, kann ein dimmbares Licht helfen.</p>
+        <p>Idee: nicht „für immer hell“, sondern Schritt für Schritt über Wochen dunkler stellen, damit Sicherheit im Dunkeln wieder trainiert wird und normal werden kann.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Auswahl</a>
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+        </div>
+      </section>
+
+      <!-- SOURCES (unverändert) -->
+      <section id="sources" class="card" aria-labelledby="t-sources">
+        <h2 id="t-sources" class="subhead">Quellenangaben</h2>
+
+        <p>Bogatzki, U. &amp; Bogatzki, A. (2020). Nicht-medikamentöse Interventionen bei Schlafstörungen. Ein Ratgeber für Pflegekräfte. Hannover: Schlütersche Verlagsgesellschaft. (vgl. Bogatzki &amp; Bogatzki, S. 25, 36, 126–131, 142).</p>
+        <p>Wortmann, K. (2015). Wege in den erholsamen Schlaf. Übungen, die den Schlaf einladen und zum Bleiben bewegen. Paderborn: Junfermann Verlag. (vgl. Wortmann, S. 43, 47, 90–92).</p>
+        <p>Bogatzki, U. &amp; Bogatzki, A. (2016). 100 Fragen zum Umgang mit Schmerz in der Pflege. 2., aktualisierte Auflage. Hannover: Schlütersche Verlagsgesellschaft.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#choose">Zurück</a>
+        </div>
+      </section>
+
+      <!-- START (muss ganz am Ende stehen für die CSS-Logik) -->
+      <section id="start" class="card" aria-labelledby="t-start">
+        <h2 id="t-start" class="subhead">Lichtsmog-City</h2>
+
+        <p>Licht wirkt wie ein Taktgeber für unseren Körper. Wenn am Tag zu wenig Licht und am Abend zu viel Licht wahrgenommen wird, kann die innere Uhr durcheinanderkommen. Einschlafen oder Durchschlafen kann schwerer werden.</p>
+
+        <p>Hier in Lichtsmog-City ist das der Fall. Am Tag verdecken die hohen Gebäude die Sonne, sodass kaum etwas bis nach unten durchkommt. In der Nacht überblenden die haushohen Smartphone-Häuser, Tablet-Wolkenkratzer und Laptop-Bauten die Dunkelheit der Nacht.</p>
+
+        <p>Die Bewohner hier sind regelmäßige Besucher am Wachsee in der Nacht.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step0">Okay, warum ist Licht so wichtig?</a>
+          <a class="btn" href="#step1">Ich will direkt einen Plan</a>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
+HTML
