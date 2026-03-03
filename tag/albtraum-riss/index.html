@@ -1,13 +1,254 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Albtraum – Riss</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>insomnie – Albtraum-Riss</title>
+  <style>
+    :root{
+      color-scheme: light dark;
+      --bg:#0b0d10;
+      --fg:#e8eaf0;
+      --muted:rgba(232,234,240,.75);
+      --card:rgba(232,234,240,.06);
+      --border:rgba(232,234,240,.14);
+      --btn:rgba(232,234,240,.10);
+      --btnHover:rgba(232,234,240,.16);
+      --btnActive:rgba(232,234,240,.22);
+      --focus:rgba(120,180,255,.85);
+      --radius:14px;
+      --max:720px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb;
+        --fg:#16181d;
+        --muted:rgba(22,24,29,.72);
+        --card:rgba(22,24,29,.04);
+        --border:rgba(22,24,29,.12);
+        --btn:rgba(22,24,29,.08);
+        --btnHover:rgba(22,24,29,.12);
+        --btnActive:rgba(22,24,29,.16);
+        --focus:rgba(0,90,200,.65);
+      }
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.55;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:24px 16px 40px;
+    }
+
+    header{ padding:10px 0 18px; }
+    h1{
+      font-size:clamp(1.35rem,3.6vw,1.8rem);
+      margin:0 0 10px;
+      letter-spacing:.2px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px 16px;
+    }
+
+    p{ margin:0 0 12px; }
+    p:last-child{ margin-bottom:0; }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    a.btn{
+      display:inline-block;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:var(--btn);
+      color:inherit;
+      text-decoration:none;
+      font-weight:600;
+      letter-spacing:.1px;
+      min-width:min(260px,100%);
+      text-align:center;
+    }
+    a.btn:hover{ background:var(--btnHover); }
+    a.btn:active{ background:var(--btnActive); }
+    a.btn:focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:2px;
+    }
+
+    .subhead{
+      font-size:1.05rem;
+      margin:0 0 10px;
+    }
+
+    /* Pseudo-Seiten */
+    main > section{ display:none; }
+    main > section:target{ display:block; }
+    main > section#start{ display:block; }
+    main > section:target ~ section#start{ display:none; }
+  </style>
 </head>
+
 <body>
-  <h1>Albtraum – Riss</h1>
-  <p>Text hier einfügen…</p>
-  <p><a href="../../">Zur Startseite</a></p>
+  <div class="wrap">
+    <header>
+      <h1>Albtraum-Riss</h1>
+    </header>
+
+    <main>
+      <!-- STEP 0 -->
+      <section id="step0" class="card" aria-labelledby="t-step0">
+        <h2 id="t-step0" class="subhead">Warum das passiert</h2>
+
+        <p>Jeder Mensch träumt – auch wenn am Morgen das meiste davon schon wieder aus der Erinnerung verschwunden ist.</p>
+        <p>Besonders intensive und seltsame Träume treten häufig in einer Schlafphase auf, die gegen Morgen stärker wird. Deshalb sind es oft die intensiven Träume, an die wir uns am ehesten erinnern.</p>
+
+        <p>Ein Gedanke aus der Forschung: Manche dieser bedrohlichen Träume könnten wie ein inneres Trainingsprogramm sein – das Gehirn probt Reaktionen, ohne dass real etwas passiert.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step1">Was ist der Plan?</a>
+          <a class="btn" href="#choose">Direkt Optionen</a>
+        </div>
+      </section>
+
+      <!-- STEP 1 -->
+      <section id="step1" class="card" aria-labelledby="t-step1">
+        <h2 id="t-step1" class="subhead">Masterplan (wenn du gerade aufgewacht bist)</h2>
+
+        <p>1. Orientieren: Du bist hier, jetzt, sicher. Es war ein Traum.<br>
+           2. Körper regulieren: Atmung beruhigen, Schultern entspannen.<br>
+           3. Gedanken entlasten: Wenn der Traum nachwirkt, kurz notieren. Wenn du möchtest, ein alternatives Ende formulieren.<br>
+           4. Wieder einschlafen erleichtern: Kein Grübeln im Bett.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Optionen auswählen</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- CHOOSE -->
+      <section id="choose" class="card" aria-labelledby="t-choose">
+        <h2 id="t-choose" class="subhead">Auswahl</h2>
+
+        <div class="buttons">
+          <a class="btn" href="#calm">Sofort runterfahren (nach dem Aufschrecken)</a>
+          <a class="btn" href="#park">Vom Traum distanzieren</a>
+          <a class="btn" href="#stimulus">Wenn ich nicht wieder einschlafen kann</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- CALM -->
+      <section id="calm" class="card" aria-labelledby="t-calm">
+        <h2 id="t-calm" class="subhead">Sofort runterfahren</h2>
+
+        <p>Wenn du gerade aus einem Albtraum kommst:</p>
+        <p>Spür einmal bewusst den Kontakt zum Bett. Atme ruhig ein und etwas länger aus.</p>
+        <p>Sag dir innerlich: „Das war ein Traum. Ich bin sicher.“</p>
+        <p>Lenk deine Gedanken in eine andere Richtung. Überlege zum Beispiel, welche Tierarten alle auf einer sehr großen, hoch gewachsenen, grünen Wiese leben könnten.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Auswahl</a>
+          <a class="btn" href="#park">Traum parken</a>
+        </div>
+      </section>
+
+      <!-- PARK -->
+      <section id="park" class="card" aria-labelledby="t-park">
+        <h2 id="t-park" class="subhead">Traum aus dem Kopf schreiben</h2>
+
+        <p>Wenn der Traum in Schleifen wiederkommt: Schreib 2–3 Stichworte auf.</p>
+        <p>Du brauchst ihn nicht analysieren – nur ablegen, damit dein Kopf ihn nicht festhalten muss.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Auswahl</a>
+          <a class="btn" href="#stimulus">Wenn ich nicht wieder einschlafen kann?</a>
+        </div>
+      </section>
+
+      <!-- STIMULUS -->
+      <section id="stimulus" class="card" aria-labelledby="t-stimulus">
+        <h2 id="t-stimulus" class="subhead">Wenn du nicht wieder einschlafen kannst</h2>
+
+        <p>Wenn du merkst, dass du wach liegst und die Gedanken immer wieder in den Traum gehen: steh kurz auf und mach etwas Ruhiges (z. B. in den Nachthimmel schauen, Podcast hören, lesen).</p>
+        <p>Zurück ins Bett erst, wenn die Müdigkeit wieder da ist.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Auswahl</a>
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- SOURCES (unverändert) -->
+      <section id="sources" class="card" aria-labelledby="t-sources">
+        <h2 id="t-sources" class="subhead">Quellen</h2>
+
+        <p>Quellenangaben<br>
+        Bogatzki, U. &amp; Bogatzki, A. (2020). Nicht-medikamentöse Interventionen bei Schlafstörungen. Ein Ratgeber für Pflegekräfte. Hannover: Schlütersche Verlagsgesellschaft. (vgl. Bogatzki &amp; Bogatzki, S. 15–17, 23, 35–36).<br>
+        Wortmann, K. (2015). Wege in den erholsamen Schlaf. Übungen, die den Schlaf einladen und zum Bleiben bewegen. Paderborn: Junfermann Verlag. (vgl. Wortmann, S. 30).<br>
+        Kreße, H. (2016). 100 Fragen zum Umgang mit Schmerz in der Pflege. 2. Auflage. Hannover: Schlütersche Verlagsgesellschaft.</p>
+
+        <p>1. Phänomen des Träumens und nächtliche Amnesie<br>
+        Zitat: „Diese Amnesie tritt bei jedem Menschen auf und das ist auch gut so. […] Somit steht fest, jeder Mensch träumt, die Frage ist nur: warum?“<br>
+        Quelle: Bogatzki, U. &amp; Bogatzki, A. (2020). Nicht-medikamentöse Interventionen bei Schlafstörungen. Hannover: Schlütersche Verlagsgesellschaft, Seite 16.</p>
+
+        <p>2. REM-Schlaf und Albtraum-Charakter<br>
+        Zitat: „[…] im sogenannten REM-Schlaf träumen wir sehr intensiv und meist sehr skurril, manchmal sogar albtraumartig. Die REM-Schlaf-Träume werden häufiger erinnert als die meisten anderen Traumarten, da der REM-Schlaf vor allem in den frühen Morgenstunden bis zum Erwachen seine Hochphase hat.“<br>
+        Quelle: Bogatzki, U. &amp; Bogatzki, A. (2020). Nicht-medikamentöse Interventionen bei Schlafstörungen. Hannover: Schlütersche Verlagsgesellschaft, Seite 15.</p>
+
+        <p>3. Theorie des urzeitlichen Trainingsprogramms<br>
+        Zitat: „Einige Theorien gehen davon aus, dass die Träume, die in der REM-Phase geschehen, ein urzeitliches Trainingsprogramm sind. Das Indiz für diese Theorie ist der Umstand, dass die Träume fast immer albtraumhafter Natur bzw. bewegungsreich sind.“<br>
+        Quelle: Bogatzki, U. &amp; Bogatzki, A. (2020). Nicht-medikamentöse Interventionen bei Schlafstörungen. Hannover: Schlütersche Verlagsgesellschaft, Seite 17.<br>
+        Ergänzendes Zitat: „Die Theorien besagen, dass diese Träume unsere neuronalen Reflexe trainieren, um so in gefährlichen Situationen intuitiv Aktionen durchführen zu können.“<br>
+        Quelle: Bogatzki, U. &amp; Bogatzki, A. (2020). Nicht-medikamentöse Interventionen bei Schlafstörungen. Hannover: Schlütersche Verlagsgesellschaft, Seite 17.</p>
+
+        <p>4. Albträume als Ursache für gestörten Schlaf<br>
+        Zitat: „Hinter der Beschreibung »schlechter Schlaf« kann vieles stecken: […] Albträume, die zum Aufwachen führen.“<br>
+        Quelle: Bogatzki, U. &amp; Bogatzki, A. (2020). Nicht-medikamentöse Interventionen bei Schlafstörungen. Hannover: Schlütersche Verlagsgesellschaft, Seite 35.<br>
+        Zitat: „Ebenso sind […] das Leiden unter Albträumen, lassen den erholsamen Schlaf vermissen.“<br>
+        Quelle: Wortmann, K. (2015). Wege in den erholsamen Schlaf. Paderborn: Junfermann Verlag, Seite 30.</p>
+
+        <p>5. Beeinträchtigung des Lebensvollzugs<br>
+        Zitat: „[…] seelische Schmerzen und Belastungen. Diese äußern sich aber häufig in Form von Konzentrationsstörungen und auch Unfällen, da diese den automatisierten Lebensvollzug aus dem Unbewussten stören und ihr Recht auf »Zuwendung« fordern.“<br>
+        Quelle: Kreße, H. (2016). 100 Fragen zum Umgang mit Schmerz in der Pflege. 2. Auflage. Hannover: Schlütersche Verlagsgesellschaft, Seite 10</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#choose">Zurück</a>
+        </div>
+      </section>
+
+      <!-- START (muss ganz am Ende stehen für die CSS-Logik) -->
+      <section id="start" class="card" aria-labelledby="t-start">
+        <h2 id="t-start" class="subhead">Albträume</h2>
+
+        <p>Albträume können dich plötzlich aus dem Schlaf reißen. Danach fühlt sich die Nacht oft „kaputt“ an – selbst wenn du eigentlich lange im Bett warst.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step0">Okay, warum passiert das?</a>
+          <a class="btn" href="#choose">Was kann ich jetzt tun?</a>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
