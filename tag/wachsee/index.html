@@ -1,13 +1,88 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wachsee</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>insomnie – Wachsee</title>
+  <style>
+    :root{
+      color-scheme: light dark;
+      --bg:#0b0d10;
+      --fg:#e8eaf0;
+      --muted:rgba(232,234,240,.75);
+      --card:rgba(232,234,240,.06);
+      --border:rgba(232,234,240,.14);
+      --radius:14px;
+      --max:720px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb;
+        --fg:#16181d;
+        --muted:rgba(22,24,29,.72);
+        --card:rgba(22,24,29,.04);
+        --border:rgba(22,24,29,.12);
+      }
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.6;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:24px 16px 40px;
+    }
+
+    header{ padding:10px 0 18px; }
+
+    h1{
+      font-size:clamp(1.35rem,3.6vw,1.8rem);
+      margin:0 0 10px;
+      letter-spacing:.2px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px 16px;
+    }
+
+    p{ margin:0 0 12px; }
+    p:last-child{ margin-bottom:0; }
+
+    .muted{ color: var(--muted); }
+  </style>
 </head>
+
 <body>
-  <h1>Wachsee</h1>
-  <p>Text hier einfügen…</p>
-  <p><a href="../../">Zur Startseite</a></p>
+  <div class="wrap">
+    <header>
+      <h1>Wachsee</h1>
+    </header>
+
+    <main class="card">
+      <p>Willkommen am Wachsee – einem durch und durch unbeliebten Ausflugsort für Menschen, die gerade viel lieber schlafen würden, als hier zu stehen.</p>
+
+      <p>Du darfst davon ausgehen: Da ist Luft nach oben. Auch wenn es sich jetzt festgefahren anfühlt, kannst du dein ungewolltes Wachsein beeinflussen – Schritt für Schritt, ohne Druck.</p>
+
+      <p>Am Tag kannst du gern mit dem Personal sprechen und gemeinsam Schlafstrategien anschauen. Für diese Nacht steht dir der Wachsee und seine Umgebung zur Verfügung. Schau dich kurz um: Woran könnte es liegen, dass du gerade hier gelandet bist?</p>
+
+      <p>Spür den Boden unter deinen Füßen. Nimm die Stille der Nacht wahr. Du bist gerade sicher. Und für heute muss nichts mehr erledigt werden – außer vielleicht, langsam müde zu werden.</p>
+
+      <p>Atme einmal ruhig ein. Und dann etwas länger wieder aus. Lass die Schlafloskarte einfach auf dich wirken.</p>
+
+      <p class="muted">Viel Erfolg.</p>
+    </main>
+  </div>
 </body>
 </html>
