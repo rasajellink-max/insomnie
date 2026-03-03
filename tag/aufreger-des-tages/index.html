@@ -1,13 +1,195 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Der Aufreger des Tages</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>insomnie – Der Aufreger des Tages</title>
+  <style>
+    :root{
+      color-scheme: light dark;
+      --bg:#0b0d10;
+      --fg:#e8eaf0;
+      --muted:rgba(232,234,240,.75);
+      --card:rgba(232,234,240,.06);
+      --border:rgba(232,234,240,.14);
+      --btn:rgba(232,234,240,.10);
+      --btnHover:rgba(232,234,240,.16);
+      --btnActive:rgba(232,234,240,.22);
+      --focus:rgba(120,180,255,.85);
+      --radius:14px;
+      --max:720px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb;
+        --fg:#16181d;
+        --muted:rgba(22,24,29,.72);
+        --card:rgba(22,24,29,.04);
+        --border:rgba(22,24,29,.12);
+        --btn:rgba(22,24,29,.08);
+        --btnHover:rgba(22,24,29,.12);
+        --btnActive:rgba(22,24,29,.16);
+        --focus:rgba(0,90,200,.65);
+      }
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.6;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:24px 16px 40px;
+    }
+
+    header{ padding:10px 0 18px; }
+    h1{
+      font-size:clamp(1.35rem,3.6vw,1.8rem);
+      margin:0 0 10px;
+      letter-spacing:.2px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px 16px;
+    }
+
+    p{ margin:0 0 12px; }
+    p:last-child{ margin-bottom:0; }
+
+    ul{ margin:0 0 12px 1.1rem; }
+    li{ margin:6px 0; }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    a.btn{
+      display:inline-block;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:var(--btn);
+      color:inherit;
+      text-decoration:none;
+      font-weight:600;
+      letter-spacing:.1px;
+      min-width:min(260px,100%);
+      text-align:center;
+    }
+    a.btn:hover{ background:var(--btnHover); }
+    a.btn:active{ background:var(--btnActive); }
+    a.btn:focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:2px;
+    }
+
+    .subhead{
+      font-size:1.05rem;
+      margin:0 0 10px;
+    }
+
+    /* Pseudo-Seiten */
+    main > section{ display:none; }
+    main > section:target{ display:block; }
+    main > section#start{ display:block; }
+    main > section:target ~ section#start{ display:none; }
+  </style>
 </head>
+
 <body>
-  <h1>Der Aufreger des Tages</h1>
-  <p>Text hier einfügen…</p>
-  <p><a href="../../">Zur Startseite</a></p>
+  <div class="wrap">
+    <header>
+      <h1>Der Aufreger des Tages</h1>
+    </header>
+
+    <main>
+      <!-- WRITE -->
+      <section id="write" class="card" aria-labelledby="t-write">
+        <h2 id="t-write" class="subhead">3–5 Sätze reichen</h2>
+
+        <p>Wenn du möchtest: Schreib am Ende eine kleine Überschrift drüber, z. B. „Morgen klären“.</p>
+        <p>Du könntest dem Ereignis auch einen Filmtitel geben.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#down">Fertig. Weiter</a>
+          <a class="btn" href="#start">Zurück</a>
+        </div>
+      </section>
+
+      <!-- DOWN -->
+      <section id="down" class="card" aria-labelledby="t-down">
+        <h2 id="t-down" class="subhead">Körper-Signal: Jetzt ist Nacht</h2>
+
+        <p>Leg eine Hand auf Brust oder Bauch.</p>
+        <p>Atme einmal ruhig ein – und dann etwas länger wieder aus.</p>
+        <p>Mach das 5 Atemzüge lang. Durch das längere Aus- als Einatmen signalisieren wir dem Körper, dass er sich entspannen darf.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#map">Zur Karte</a>
+        </div>
+      </section>
+
+      <!-- MAP -->
+      <section id="map" class="card" aria-labelledby="t-map">
+        <h2 id="t-map" class="subhead">Wenn es nicht weggeht</h2>
+
+        <p>Such dir Unterstützung auf der Karte:</p>
+        <ul>
+          <li>Grübelberg (wenn Gedanken kreisen)</li>
+          <li>Was-wäre-wenn-Weg (wenn du Szenarien durchspielst)</li>
+        </ul>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück</a>
+        </div>
+      </section>
+
+      <!-- START (muss ganz am Ende stehen für die CSS-Logik) -->
+      <section id="start" class="card" aria-labelledby="t-start">
+        <h2 id="t-start" class="subhead">Der Aufreger des Tages</h2>
+
+        <p>Manchmal passiert am Tag etwas, das nachts wieder auftaucht.</p>
+        <p>Etwas Schönes, etwas Unangenehmes, etwas Schockierendes oder einfach etwas, das „zu groß“ war, um es direkt zu verdauen.</p>
+
+        <p>Vielleicht bist du heute über dich hinausgewachsen.</p>
+        <p>Vielleicht hattest du eine blöde Begegnung, die du innerlich weiter diskutierst.</p>
+        <p>Oder der Klassiker: Der beste Konter kommt dir jetzt. Ein paar Stunden zu spät. Das kennen fast alle.</p>
+
+        <p>Für diese Nacht geht’s nicht darum, alles zu lösen.</p>
+        <p>Es geht darum, den Kopf zu entlasten, damit du zur Ruhe kommen kannst.</p>
+
+        <p><strong>Mini-Maßnahme: „Raus damit“</strong></p>
+        <p>Schreib 3–5 Sätze auf (nur für dich):</p>
+        <ul>
+          <li>Was war der Aufreger?</li>
+          <li>Was hat es in dir ausgelöst?</li>
+          <li>Was wäre ein nächster Schritt – aber erst morgen?</li>
+        </ul>
+
+        <p>Dann schließ es ab mit einem Satz wie: <em>„Für heute ist die Kiste zu.“</em></p>
+
+        <div class="buttons">
+          <a class="btn" href="#write">Ich schreibe es jetzt auf</a>
+          <a class="btn" href="#down">Ich möchte die Anspannung loswerden.</a>
+          <a class="btn" href="#map">Ich schaue mich nochmal auf der Schlafloskarte um</a>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
