@@ -1,13 +1,272 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Uhrzeit – Schleife</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>insomnie – Uhrblick</title>
+  <style>
+    :root{
+      color-scheme: light dark;
+      --bg:#0b0d10;
+      --fg:#e8eaf0;
+      --muted:rgba(232,234,240,.75);
+      --card:rgba(232,234,240,.06);
+      --border:rgba(232,234,240,.14);
+      --btn:rgba(232,234,240,.10);
+      --btnHover:rgba(232,234,240,.16);
+      --btnActive:rgba(232,234,240,.22);
+      --focus:rgba(120,180,255,.85);
+      --radius:14px;
+      --max:720px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb;
+        --fg:#16181d;
+        --muted:rgba(22,24,29,.72);
+        --card:rgba(22,24,29,.04);
+        --border:rgba(22,24,29,.12);
+        --btn:rgba(22,24,29,.08);
+        --btnHover:rgba(22,24,29,.12);
+        --btnActive:rgba(22,24,29,.16);
+        --focus:rgba(0,90,200,.65);
+      }
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.55;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:24px 16px 40px;
+    }
+
+    header{ padding:10px 0 18px; }
+    h1{
+      font-size:clamp(1.35rem,3.6vw,1.8rem);
+      margin:0 0 10px;
+      letter-spacing:.2px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px 16px;
+    }
+
+    p{ margin:0 0 12px; }
+    p:last-child{ margin-bottom:0; }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    a.btn{
+      display:inline-block;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:var(--btn);
+      color:inherit;
+      text-decoration:none;
+      font-weight:600;
+      letter-spacing:.1px;
+      min-width:min(260px,100%);
+      text-align:center;
+    }
+    a.btn:hover{ background:var(--btnHover); }
+    a.btn:active{ background:var(--btnActive); }
+    a.btn:focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:2px;
+    }
+
+    .subhead{
+      font-size:1.05rem;
+      margin:0 0 10px;
+    }
+
+    /* Pseudo-Seiten */
+    main > section{ display:none; }
+    main > section:target{ display:block; }
+    main > section#start{ display:block; }
+    main > section:target ~ section#start{ display:none; }
+  </style>
 </head>
+
 <body>
-  <h1>Uhrzeit – Schleife</h1>
-  <p>Text hier einfügen…</p>
-  <p><a href="../../">Zur Startseite</a></p>
+  <div class="wrap">
+    <header>
+      <h1>Uhrblick</h1>
+    </header>
+
+    <main>
+      <!-- STEP 0 -->
+      <section id="step0" class="card" aria-labelledby="t-step0">
+        <h2 id="t-step0" class="subhead">Uhrzeitschleife</h2>
+
+        <p>Diesen Ablauf kennst du bestimmt: Blick auf die Uhr → „Wie viel Schlaf bleibt noch?“ → Anspannung/Nervosität → Körper wird wacher → noch mehr Wachliegen → Blick auf die Uhr… Willkommen in der Uhrzeitschleife!</p>
+
+        <p>Ziel: Diesen Kreislauf an der Wurzel unterbrechen. Die Uhr aus dem Spiel nehmen. Auf der Schlafloskarte schwebt sie im Zentrum. Wie viel ruhiger wäre der Nachthimmel ohne sie?</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step1">Masterplan</a>
+          <a class="btn" href="#choose">Direkt Übungen</a>
+        </div>
+      </section>
+
+      <!-- STEP 1 -->
+      <section id="step1" class="card" aria-labelledby="t-step1">
+        <h2 id="t-step1" class="subhead">Masterplan</h2>
+
+        <p>1. Wecker unsichtbar machen: So stellen, dass du ihn nicht automatisch siehst. Wahrscheinlich hast du keinen Wecker mehr, sondern ein Handy. Leg es auf den Nachttisch – möglichst weit weg.<br>
+           2. Umdeuten statt ärgern: Wenn du wach bist, gib dem Moment eine freundlichere Bedeutung.<br>
+           3. Wenn das Einschlafen nicht gelingt: Nach einer Weile kurz raus aus dem Bett, ruhige Tätigkeit, dann erst zurück.<br>
+           4. Beruhigungs-Übung: Fokus an Atmung/Körper binden, bis der Druck nachlässt.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Übungen auswählen</a>
+          <a class="btn" href="#stimulus">Was, wenn ich nach ~30 Minuten noch wach bin?</a>
+        </div>
+      </section>
+
+      <!-- CHOOSE -->
+      <section id="choose" class="card" aria-labelledby="t-choose">
+        <h2 id="t-choose" class="subhead">Wähle eine Übung</h2>
+
+        <p>Nimm eine, die sich gerade machbar anfühlt.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#reframe">Umdeutung: „Noch nicht geklingelt“</a>
+          <a class="btn" href="#breathsurf">Atemsurfen</a>
+          <a class="btn" href="#anchor">5–4–3–2–1 Sinnes-Anker</a>
+          <a class="btn" href="#stimulus">Wenn es festhängt: Bett kurz verlassen</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- REFRAME -->
+      <section id="reframe" class="card" aria-labelledby="t-reframe">
+        <h2 id="t-reframe" class="subhead">Umdeutung</h2>
+
+        <p>Wenn du wach wirst: Versuch nicht sofort zu bewerten („Oh nein…“).</p>
+        <p>Sag dir stattdessen: „Der Wecker hat noch nicht geklingelt.“ Das nimmt etwas Druck raus.</p>
+        <p>Leg dir jetzt schon einen positiven inneren Satz zurecht, falls du das nächste Mal in der Nacht wach wirst.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Übungsauswahl</a>
+          <a class="btn" href="#breathsurf">Nächste Übung</a>
+        </div>
+      </section>
+
+      <!-- BREATHSURF -->
+      <section id="breathsurf" class="card" aria-labelledby="t-breathsurf">
+        <h2 id="t-breathsurf" class="subhead">Atemsurfen</h2>
+
+        <p>Beobachte nur deine Atmung, wie Wellen. Bauch und Brustkorb wiegen sich wie bewegtes Wasser.</p>
+        <p>Optional: Hände/Daumen als ruhigen Körper-Anker nutzen (z. B. Daumen sanft berühren. Vielleicht stellst du dir vor, wie die Welle genau hier bricht.).</p>
+        <p>Wenn Gedanken kommen: zurück zur nächsten Ausatmung.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Übungsauswahl</a>
+          <a class="btn" href="#anchor">Nächste Übung</a>
+          <a class="btn" href="#stimulus">Wenn es festhängt</a>
+        </div>
+      </section>
+
+      <!-- ANCHOR -->
+      <section id="anchor" class="card" aria-labelledby="t-anchor">
+        <h2 id="t-anchor" class="subhead">5–4–3–2–1 Sinnes-Anker</h2>
+
+        <p>Wenn dein Kopf dringend die Uhrzeit wissen will, verändere deinen Fokus. Fang an:</p>
+
+        <p>- 5 Dinge sehen<br>
+           - 4 Dinge fühlen (z. B. Decke, Kissen, Stoff)<br>
+           - 3 Dinge hören<br>
+           - 2 Dinge riechen<br>
+           - 1 Sache schmecken (Vorstellen geht auch)</p>
+
+        <p>Das ist wie „Boden unter die Füße“ fürs Nervensystem.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Übungsauswahl</a>
+          <a class="btn" href="#stimulus">Wenn es festhängt</a>
+        </div>
+      </section>
+
+      <!-- STIMULUS -->
+      <section id="stimulus" class="card" aria-labelledby="t-stimulus">
+        <h2 id="t-stimulus" class="subhead">Wenn du nach ca. 30 Minuten noch wach bist</h2>
+
+        <p>Wenn du merkst: Du liegst fest, grübelst, und der Druck wird höher — dann steh kurz auf.</p>
+        <p>Mach etwas Ruhiges (z. B. lesen, leise Musik, etwas schreiben).</p>
+        <p>Geh erst zurück ins Bett, wenn du wieder müde wirst.</p>
+
+        <p>Ziel: Bett wieder mit Schlaf verbinden, nicht mit „Zeitdruck“.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#choose">Zur Übungsauswahl</a>
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- SOURCES (unverändert) -->
+      <section id="sources" class="card" aria-labelledby="t-sources">
+        <h2 id="t-sources" class="subhead">Quellen</h2>
+
+        <p>Berechnen der Schlafzeit: „Im Bett fällt dann ihr Blick häufig auf den Wecker und sie rechnet ihre verbleibende Schlafenszeit aus: ‚Nur noch vier Stunden, nur noch drei Stunden …‘ Das mache sie nervös und verscheuche den Schlaf“ (vgl. Wortmann, S. 40).</p>
+        <p>Die Rolle von Adrenalin: „Wer aufwacht und sieht, dass ihm nur noch eine Stunde bis zum Aufstehen bleibt, wird meist erschrecken bzw. sich ärgern, dass nur noch so wenig Zeit zum Schlafen ist. Dass aber setzt Adrenalin frei und dies kann den Wiedereinschlafprozess deutlich verlängern“ (vgl. Bogatzki &amp; Bogatzki, S. 163).</p>
+
+        <p><strong>Empfohlene Maßnahmen der Experten</strong><br>
+           1. Positionierung des Weckers<br>
+           Wecker wegdrehen: „Stellen Sie den Wecker mit der Anzeigeseite zur Wand“ (vgl. Bogatzki &amp; Bogatzki, S. 163).<br>
+           2. Schlafhygiene-Regeln<br>
+           Vermeidungsgebot: Als 15. Regel der Schlafhygiene gilt: „Vermeiden Sie es, nachts auf die Uhr zu sehen“ (vgl. Wortmann, S. 43).<br>
+           3. Reframing (Umdeutung)<br>
+           Positive Bewertung: „Wenn Sie dann wach werden, freuen Sie sich einfach, dass der Wecker noch nicht geklingelt hat“ (vgl. Bogatzki &amp; Bogatzki, S. 163).<br>
+           4. Stimuluskontrolle<br>
+           Bett verlassen: „Wer nicht innerhalb einer bestimmten Zeit (ca. 30 Minuten) einschlafen kann, sollte wieder aufstehen und einer Tätigkeit nachgehen, die entspannend wirkt: Lesen, Musik hören, meditieren etc.“ (vgl. Bogatzki &amp; Bogatzki, S. 142).<br>
+           Konditionierung aufbrechen: „Wenn Sie nachts nicht schlafen können, verlassen Sie das Bett und legen sich erst wieder hin, wenn Sie müde sind“ (vgl. Wortmann, S. 43).<br>
+           5. Atemübungen zur Beruhigung<br>
+           4/7/8-Methode: „Die Gedanken kreisen noch? Versuchen Sie doch einmal die 4/7/8 Methode“ (vgl. Bogatzki &amp; Bogatzki, S. 163). Durch diese Konzentration „lassen sich störende Gedanken leichter ausschalten […] es wird der Parasympathikus aktiviert und somit der Sympathikus in den Ruhemodus versetzt“ (vgl. Bogatzki &amp; Bogatzki, S. 146).<br>
+           Atemsurfen: „Lassen Sie sich von den sanften Wellen der Atmung tragen und surfen Sie genüsslich in den Schlaf. Dies geschieht dadurch, dass Sie Ihre Hände und ganz besonders Ihre Daumen zu Hilfe nehmen“ (vgl. Wortmann, S. 65).</p>
+
+        <p>Quellenangaben<br>
+           Bogatzki, U. &amp; Bogatzki, A. (2020). Nicht-medikamentöse Interventionen bei Schlafstörungen. Ein Ratgeber für Pflegekräfte. Hannover: Schlütersche Verlagsgesellschaft.<br>
+           Wortmann, K. (2015). Wege in den erholsamen Schlaf. Übungen, die den Schlaf einladen und zum Bleiben bewegen. Paderborn: Junfermann Verlag.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#stimulus">Zurück</a>
+        </div>
+      </section>
+
+      <!-- START (muss ganz am Ende stehen für die CSS-Logik) -->
+      <section id="start" class="card" aria-labelledby="t-start">
+        <h2 id="t-start" class="subhead">Uhrblick</h2>
+
+        <p>Wenn du nachts auf die Uhr schaust, kann das die Stimmung sofort in „Rechnen + Zeitdruck“ kippen. Dann entsteht Stress – und der macht wach.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step0">Okay, was passiert da genau?</a>
+          <a class="btn" href="#choose">Ich will direkt eine Übung</a>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
