@@ -1,13 +1,275 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Schmerz – Klippe</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>insomnie – Schmerz–Klippe</title>
+  <style>
+    :root{
+      color-scheme: light dark;
+      --bg: #0b0d10;
+      --fg: #e8eaf0;
+      --muted: rgba(232,234,240,.75);
+      --card: rgba(232,234,240,.06);
+      --border: rgba(232,234,240,.14);
+      --btn: rgba(232,234,240,.10);
+      --btnHover: rgba(232,234,240,.16);
+      --btnActive: rgba(232,234,240,.22);
+      --focus: rgba(120, 180, 255, .85);
+      --radius: 14px;
+      --max: 720px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f7f8fb;
+        --fg: #16181d;
+        --muted: rgba(22,24,29,.72);
+        --card: rgba(22,24,29,.04);
+        --border: rgba(22,24,29,.12);
+        --btn: rgba(22,24,29,.08);
+        --btnHover: rgba(22,24,29,.12);
+        --btnActive: rgba(22,24,29,.16);
+        --focus: rgba(0, 90, 200, .65);
+      }
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    header{ padding: 10px 0 18px; }
+
+    h1{
+      font-size: clamp(1.35rem, 3.6vw, 1.8rem);
+      margin: 0 0 10px;
+      letter-spacing: .2px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+    }
+
+    p{ margin: 0 0 12px; }
+    p:last-child{ margin-bottom: 0; }
+
+    .buttons{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    a.btn{
+      display: inline-block;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--btn);
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .1px;
+      min-width: min(260px, 100%);
+      text-align: center;
+    }
+    a.btn:hover{ background: var(--btnHover); }
+    a.btn:active{ background: var(--btnActive); }
+    a.btn:focus-visible{
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .subhead{
+      font-size: 1.05rem;
+      margin: 0 0 10px;
+    }
+
+    /* Pseudo-Seiten */
+    main > section{ display: none; }
+    main > section:target{ display: block; }
+
+    /* Default: Start sichtbar */
+    main > section#start{ display: block; }
+
+    /* Wenn irgendein Target aktiv ist (und vor #start steht), Start ausblenden */
+    main > section:target ~ section#start{ display: none; }
+
+    .alert{
+      border-left: 4px solid var(--border);
+      padding-left: 12px;
+      margin-top: 10px;
+    }
+    .numbers{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-weight: 600;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Schmerz – Klippe</h1>
-  <p>Text hier einfügen…</p>
-  <p><a href="../../">Zur Startseite</a></p>
+  <div class="wrap">
+    <header>
+      <h1>Schmerz – Klippe</h1>
+    </header>
+
+    <main>
+      <!-- STEP 0 -->
+      <section id="step0" class="card" aria-labelledby="t-step0">
+        <h2 id="t-step0" class="subhead">Teufelskreis</h2>
+
+        <p>Wenn nachts Schmerzen wach halten, fühlt sich das schnell wie ein Teufelskreis an: Wenig Schlaf macht den Körper empfindlicher – und dann wirken Schmerzen noch stärker.</p>
+        <p>Die gute Nachricht: Es gibt ein paar Handlungsspielräume, die oft schon etwas Verbesserung mit sich bringen.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step1">Zu den Handlungsspielräumen</a>
+        </div>
+      </section>
+
+      <!-- STEP 1 -->
+      <section id="step1" class="card" aria-labelledby="t-step1">
+        <h2 id="t-step1" class="subhead">Einordnung &amp; Ziel</h2>
+
+        <p>Schlaf hilft dem Körper, besser mit Belastung umzugehen. Wenn der Schlaf fehlt, wird vieles schwerer: Verspannung, Unruhe, weniger Toleranz.</p>
+        <p>Ziel: erst einmal Entlastung in der Nacht, damit du überhaupt wieder eine Chance auf Erholung hast.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step2">Masterplan</a>
+          <a class="btn" href="#sources">Direkt zu den Quellen</a>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section id="step2" class="card" aria-labelledby="t-step2">
+        <h2 id="t-step2" class="subhead">Masterplan – Teil 1: Körper direkt entlasten</h2>
+
+        <p>- Bequeme Liegeposition finden (so, dass nichts zieht oder drückt).<br>
+           - Sanfte lokale Einreibung an der schmerzenden Stelle (wenn das bei dir passt).<br>
+           - Wärme für verspannte Bereiche (z. B. Nacken/Schulter), wenn Wärme dir guttut. Teste auch gerne Kälte aus: Sie kann entzündliche Prozesse verlangsamen und zur Schmerzlinderung beitragen.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step3">Mehr Möglichkeiten</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section id="step3" class="card" aria-labelledby="t-step3">
+        <h2 id="t-step3" class="subhead">Masterplan – Teil 2: Düfte &amp; Öle</h2>
+
+        <p>Manche Düfte/Öle werden genutzt, um den Körper runterzufahren und den Fokus weg vom Schmerz zu bringen.</p>
+        <p>Beispiele (nur, wenn es bei dir vorgesehen ist):</p>
+        <p>- Lavendel oder römische Kamille (eher beruhigend)<br>
+           - Johanniskraut- oder Ringelblumen-Mazerat (Calendula-Öl), wenn du am Abend frierst und Muskelverspannungen hast.</p>
+        <p>Wende dich gerne an die Pflege: Wir haben verschiedene Öle und Düfte im Dienstzimmer.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step4">Noch mehr</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section id="step4" class="card" aria-labelledby="t-step4">
+        <h2 id="t-step4" class="subhead">Masterplan – Teil 3: Spannung lösen</h2>
+
+        <p>Wenn Schmerzen viel mit Verspannung zu tun haben, kann es helfen, den Körper gezielt in „Loslassen“ zu bringen:</p>
+        <p>- Akupressur (je nachdem, wo der Schmerz sitzt)<br>
+           - Progressive Muskelrelaxation (im Internet findest du viele Anleitungen)</p>
+
+        <div class="buttons">
+          <a class="btn" href="#food">Und Ernährung?</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- FOOD -->
+      <section id="food" class="card" aria-labelledby="t-food">
+        <h2 id="t-food" class="subhead">Ernährung / Mineralstoffe</h2>
+
+        <p>Wenn nachts Muskelkrämpfe auftreten, kann das auch mit Mineralstoffmangel zusammenhängen (z. B. Magnesium/Kalium).</p>
+        <p>Käse, Fisch, Vollkornprodukte und Hülsenfrüchte werden empfohlen, um den Körper ausreichend mit Mineralien zu versorgen.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#now">Und jetzt?</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- NOW -->
+      <section id="now" class="card" aria-labelledby="t-now">
+        <h2 id="t-now" class="subhead">Wichtig</h2>
+
+        <p>Wenn Schmerzen deinen Schlaf dauerhaft stören oder neu/ungewöhnlich sind: Bitte sprich das beim medizinischen Personal an. Dann kann man Ursachen prüfen und die Behandlung passend einstellen.</p>
+        <p>Es kann auch helfen, deinen Fokus auf etwas anderes zu lenken. Schau dich noch etwas auf der Schlafloskarte um: Vielleicht findest du weitere Hinweise oder lässt einfach das Bild auf dich wirken.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#sources">Quellen</a>
+        </div>
+      </section>
+
+      <!-- SOURCES -->
+      <section id="sources" class="card" aria-labelledby="t-sources">
+        <h2 id="t-sources" class="subhead">Quellen</h2>
+
+        <p>- Teufelskreis Schmerz &amp; Schlaf: „Schlafmangel führt zu Verspannungen und einer sinkenden Toleranzschwelle, wodurch Schmerzen wiederum intensiver wahrgenommen werden“ (vgl. Bogatzki &amp; Bogatzki, S. 160, 161).</p>
+        <p>- Erholsamer Schlaf hilft: „Erholsamer Schlaf hingegen hilft dabei, Schmerzen und Einschränkungen leichter zu ertragen“ (vgl. Bogatzki &amp; Bogatzki, S. 161).</p>
+        <p>- Bequeme Liegeposition: „… individuelle Anpassung der Lagerung …“ (vgl. Bogatzki &amp; Bogatzki, S. 52, 135).</p>
+        <p>- Lokale Anwendungen: „Sanfte lokale Einreibungen …“ (vgl. Bogatzki &amp; Bogatzki, S. 105).</p>
+        <p>- Wärmeanwendungen: „… warme Nackenrolle … entspannt …“ (vgl. Bogatzki &amp; Bogatzki, S. 211).</p>
+        <p>- Aromapflege analgetisch: „… ätherische Öle mit analgetischen Eigenschaften …“ (vgl. Bogatzki &amp; Bogatzki, S. 172).</p>
+        <p>- Johanniskraut-Mazerat: „… Nervenschmerzen, Polyneuropathie, unruhige Beine …“ (vgl. Bogatzki &amp; Bogatzki, S. 190).</p>
+        <p>- Warme Ölauflage/Leberwickel: „… warme Ölauflage … Leberwickel …“ (vgl. Bogatzki &amp; Bogatzki, S. 202).</p>
+        <p>- Ringelblumen-Mazerat: „… Muskulatur und Gelenke …“ (vgl. Bogatzki &amp; Bogatzki, S. 190).</p>
+        <p>- Entspannende Düfte: „… Lavendel … römische Kamille … Serotonin …“ (vgl. Bogatzki &amp; Bogatzki, S. 166).</p>
+        <p>- Akupressur: „… Blockaden lösen … Ischialgien oder Kopfschmerzen …“ (vgl. Bogatzki &amp; Bogatzki, S. 247, 254).</p>
+        <p>- Akupunkturpflaster/Gitterpflaster: „… Muskeltonus … Stoffwechsellage …“ (vgl. Bogatzki &amp; Bogatzki, S. 252, 253).</p>
+        <p>- PMR: „… chronische Verspannungen …“ (vgl. Bogatzki &amp; Bogatzki, S. 275).</p>
+        <p>- Magnesium/Kalium &amp; Krämpfe: „… nächtliche Muskelkrämpfe …“ (vgl. Bogatzki &amp; Bogatzki, S. 231).</p>
+        <p>- Medizinische Abklärung: „… medizinisch abgeklärt … Ursache … Therapie anpassen …“ (vgl. Bogatzki &amp; Bogatzki, S. 56, 84).</p>
+
+        <p>Vollständige Quelle: Bogatzki, U. &amp; Bogatzki, A. (2020). <em>Nicht-medikamentöse Interventionen bei Schlafstörungen. Ein Ratgeber für Pflegekräfte.</em> Hannover: Schlütersche Verlagsgesellschaft.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#start">Zurück zum Anfang</a>
+          <a class="btn" href="#now">Zurück</a>
+        </div>
+      </section>
+
+      <!-- START (muss ganz am Ende stehen für die CSS-Logik) -->
+      <section id="start" class="card" aria-labelledby="t-start">
+        <h2 id="t-start" class="subhead">Schmerzen</h2>
+
+        <div class="alert">
+          <p><strong>Das Wichtigste zuerst:</strong> Sind deine Schmerzen gerade neu aufgekommen und/oder sehr stark, dann ist es wichtig zu handeln.</p>
+          <p>Wenn es Nacht ist, rufe bitte die Pendelwache an. In jedem Flur hängt ein Telefon an der Wand.</p>
+          <p class="numbers">Pendelwache (Nacht): 1587 · Am Tag: 2530</p>
+        </div>
+
+        <p>Wenn deine Schmerzen ein alt bekannter Begleiter sind und auszuhalten, dann gehe auf „Weiter“.</p>
+
+        <div class="buttons">
+          <a class="btn" href="#step0">Weiter</a>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
