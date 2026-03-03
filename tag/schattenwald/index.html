@@ -1,13 +1,92 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Schattenwald</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>insomnie – Schattenwald</title>
+  <style>
+    :root{
+      color-scheme: light dark;
+      --bg:#0b0d10;
+      --fg:#e8eaf0;
+      --muted:rgba(232,234,240,.75);
+      --card:rgba(232,234,240,.06);
+      --border:rgba(232,234,240,.14);
+      --radius:14px;
+      --max:720px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb;
+        --fg:#16181d;
+        --muted:rgba(22,24,29,.72);
+        --card:rgba(22,24,29,.04);
+        --border:rgba(22,24,29,.12);
+      }
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.6;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:24px 16px 40px;
+    }
+
+    header{ padding:10px 0 18px; }
+
+    h1{
+      font-size:clamp(1.35rem,3.6vw,1.8rem);
+      margin:0 0 10px;
+      letter-spacing:.2px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px 16px;
+    }
+
+    p{ margin:0 0 12px; }
+    p:last-child{ margin-bottom:0; }
+
+    .muted{ color: var(--muted); }
+  </style>
 </head>
+
 <body>
-  <h1>Schattenwald</h1>
-  <p>Text hier einfügen…</p>
-  <p><a href="../../">Zur Startseite</a></p>
+  <div class="wrap">
+    <header>
+      <h1>Schattenwald</h1>
+    </header>
+
+    <main class="card">
+      <p>Du hast das Gefühl, der dunkle Schattenwald hält dich vom Schlafen ab.</p>
+
+      <p>Vielleicht wirkt dort etwas bedrohlich. Vielleicht sind es Zukunftssorgen, Angst vor dem Unbekannten oder einfach ein unruhiges Gefühl.</p>
+
+      <p>Heute musst du nicht herausfinden, was in diesem Wald los ist.</p>
+
+      <p>Stell dir vor: Der Wald ist draußen, weit weg vom Gebäude. Du bist hier sicher.</p>
+
+      <p>Vielleicht siehst du ihn nur weit am Horizont.</p>
+
+      <p>Wenn du möchtest, kannst du ihn am Tag anschauen – dann wirkt er oft weniger bedrohlich. Und vielleicht nimmst du jemanden mit. Zu zweit verläuft man sich nicht so leicht, und man kann darüber sprechen, was einem im Wald begegnet.</p>
+
+      <p>Für diese Nacht gilt: Lass den Wald Wald sein.</p>
+
+      <p class="muted">Wende dich etwas anderem zu. Schau dich auf der Schlafloskarte um – bestimmt findest du etwas, das dir heute hilft.</p>
+    </main>
+  </div>
 </body>
 </html>
